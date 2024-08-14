@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="ToDo.Pages.EditTask"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <VerticalStackLayout
+        HorizontalOptions="Center"
+        Spacing="20"
+        VerticalOptions="Center">
+        <Label Text="Název úkolu:" />
+        <Entry x:Name="NameEntry" />
+        <Label Text="Popis úkolu:" />
+        <Entry x:Name="DescriptionEntry" />
+        <Label Text="Datum a čas konce" />
+        <DatePicker x:Name="TaskDatePicker" />
+        <TimePicker x:Name="TaskTimePicker" />
+        <Button
+            x:Name="SubmitBtn"
+            Clicked="SubmitBtn_OnClicked"
+            Text="Create task" />
+    </VerticalStackLayout>
+</ContentPage>
