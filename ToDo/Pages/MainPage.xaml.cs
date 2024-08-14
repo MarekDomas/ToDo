@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using ToDo.Classes;
 using ToDo.Pages;
+using Plugin.LocalNotification;
 
 namespace ToDo;
 
@@ -8,7 +9,22 @@ public partial class MainPage : ContentPage
 {
     public MainPage()
     {
-        InitializeComponent();     
+        InitializeComponent();
+        var request = new NotificationRequest
+        {
+            NotificationId = 1337,
+            Title = "MEDIUM",
+            Subtitle = "Hello! I'm Erdal",
+            Description = "Local Push Notification",
+            BadgeNumber = 1,
+
+            Schedule = new NotificationRequestSchedule
+            {
+                NotifyTime = DateTime.Now.AddSeconds(3),
+            }
+        };
+
+        LocalNotificationCenter.Current.Show(request);
     }
 
     protected override void OnAppearing()

@@ -19,7 +19,7 @@
                         <ViewCell>
                             <AbsoluteLayout>
                                 <Label
-                                    AbsoluteLayout.LayoutBounds="0.01,0,65,45"
+                                    AbsoluteLayout.LayoutBounds="0.01,0,205,45"
                                     AbsoluteLayout.LayoutFlags="PositionProportional"
                                     HorizontalOptions="Start"
                                     Text="{Binding TaskName}"

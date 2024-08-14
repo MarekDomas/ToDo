@@ -3,9 +3,10 @@
     x:Class="ToDo.Pages.EditTask"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
     <VerticalStackLayout
         x:Name="MainLayout"
-        HorizontalOptions="Center"
+        Padding="20"
         Spacing="20"
         VerticalOptions="Center">
 
@@ -16,9 +17,11 @@
         <Label Text="Datum a čas konce" />
         <DatePicker x:Name="TaskDatePicker" />
         <TimePicker x:Name="TaskTimePicker" />
+
         <Button
             x:Name="SubmitBtn"
             Clicked="SubmitBtn_OnClicked"
             Text="Create task" />
+
     </VerticalStackLayout>
 </ContentPage>
