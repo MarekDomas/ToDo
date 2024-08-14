@@ -21,15 +21,14 @@
                                 <Label
                                     AbsoluteLayout.LayoutBounds="0.01,0,65,45"
                                     AbsoluteLayout.LayoutFlags="PositionProportional"
+                                    HorizontalOptions="Start"
                                     Text="{Binding TaskName}"
                                     VerticalOptions="Center" />
                                 <CheckBox
                                     AbsoluteLayout.LayoutBounds="1,0,65,45"
                                     AbsoluteLayout.LayoutFlags="PositionProportional"
-                                    CheckedChanged="CheckBox_CheckedChanged"
-                                    Focused="CheckBox_Focused"
+                                    HorizontalOptions="End"
                                     IsChecked="{Binding TaskStatus}"
-                                    Unfocused="CheckBox_Unfocused"
                                     VerticalOptions="Center" />
                             </AbsoluteLayout>
                         </ViewCell>
