@@ -11,6 +11,7 @@ namespace ToDo.Classes
     {
         private static string path = Path.Combine(FileSystem.AppDataDirectory, "tasks.xml");
 
+        //Funkce serializuje List do xml souboru
         public static void SaveTasks()
         {
             var serializer = new XmlSerializer(typeof(List<TaskToDo>));
@@ -19,6 +20,8 @@ namespace ToDo.Classes
                 serializer.Serialize(writer, ListService.Tasks);
             }
         }
+
+        //Funkce deserializuje xml soubor do Listu
         public static void LoadTasks()
         {
             if (!File.Exists(path))
@@ -33,6 +36,7 @@ namespace ToDo.Classes
             }
         }
 
+        //Funkce načte úkoly a refreshne ListView
         public static void RefreshListView(ListView lv)
         {
             LoadTasks();

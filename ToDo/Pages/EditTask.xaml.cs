@@ -5,9 +5,11 @@ namespace ToDo.Pages;
 
 public partial class EditTask : ContentPage
 {
-    TaskToDo taskToEdit = null;
-    bool isEdit = false;
-	public EditTask(TaskToDo taskToEdit = null)
+    TaskToDo taskToEdit;
+    bool isEdit;
+
+    //Konstruktor má výchozí parametr taskToEdit, který je null, když není znamená to, že se edituje existující úkol
+	public EditTask(TaskToDo? taskToEdit = null)
 	{
 		InitializeComponent();
 
@@ -40,18 +42,20 @@ public partial class EditTask : ContentPage
     {
         var answer = await DisplayAlert("Delete?", "Do you want to delete the task", "Yes", "No");
 
-        if (answer)
+        if (!answer)
         {
-            Debug.Assert(ListService.Tasks.Remove(taskToEdit));
-            Functions.SaveTasks();
-            Navigation.PopAsync();
+            return;
         }
+
+        ListService.Tasks.Remove(taskToEdit);
+        Functions.SaveTasks();
+        Navigation.PopAsync();
     }
 
     private void loadTask(TaskToDo task)
     {
         isEdit = true;
-        this.taskToEdit = task;
+        taskToEdit = task;
         SubmitBtn.Text = "Edit task";
 
         NameEntry.Text = taskToEdit.TaskName;
@@ -59,11 +63,10 @@ public partial class EditTask : ContentPage
         TaskDatePicker.Date = taskToEdit.TaskDate;
         TaskTimePicker.Time = taskToEdit.TaskTime;
 
-        Button deleteBtn = new Button()
+        Button deleteBtn = new Button
         {
             Text = "Delete task",
             BackgroundColor = Colors.Red,
-            
         };
 
         deleteBtn.Clicked += DeleteBtn_OnClicked;
