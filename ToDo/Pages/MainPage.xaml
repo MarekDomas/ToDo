@@ -6,7 +6,6 @@
 
     <ScrollView>
         <AbsoluteLayout>
-
             <ListView
                 x:Name="TaskLv"
                 Margin="20"
@@ -36,17 +35,15 @@
                 </ListView.ItemTemplate>
             </ListView>
 
-
             <Button
                 x:Name="TaskBtn"
                 Margin="20"
                 AbsoluteLayout.LayoutBounds="0.5,1,1,0.1"
-                AbsoluteLayout.LayoutFlags="PositionProportional,SizeProportional"
+                AbsoluteLayout.LayoutFlags="All"
                 Clicked="TaskBtn_OnClicked"
-                Text="New task"
+                Text="Nový úkol"
                 VerticalOptions="End" />
 
         </AbsoluteLayout>
     </ScrollView>
-
 </ContentPage>

@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using ToDo.Classes;
 
 namespace ToDo.Pages;
@@ -22,15 +21,22 @@ public partial class EditTask : ContentPage
 
     private void SubmitBtn_OnClicked(object? sender, EventArgs e)
     {
-        if (isEdit)
+        if(string.IsNullOrWhiteSpace(NameEntry.Text))
+        {
+            DisplayAlert("Error", "Zadejte název úkolu", "Ok");
+            return;
+        }
+
+        if (isEdit)//Editace úkolu
         {
             taskToEdit.TaskName = NameEntry.Text;
             taskToEdit.TaskDescription = DescriptionEntry.Text;
             taskToEdit.TaskDate = TaskDatePicker.Date;
             taskToEdit.TaskTime = TaskTimePicker.Time;
         }
-        else
+        else//Vytváøení úkolu
         {
+
             TaskToDo newTask = new(NameEntry.Text, DescriptionEntry.Text ,TaskDatePicker.Date, TaskTimePicker.Time ,false);
             ListService.Tasks.Add(newTask);
         }
@@ -40,7 +46,7 @@ public partial class EditTask : ContentPage
 
     private async void DeleteBtn_OnClicked(object? sender, EventArgs e)
     {
-        var answer = await DisplayAlert("Delete?", "Do you want to delete the task", "Yes", "No");
+        var answer = await DisplayAlert("Smazat", "Chcete smazat úkol", "Ano", "Ne");
 
         if (!answer)
         {
@@ -56,16 +62,16 @@ public partial class EditTask : ContentPage
     {
         isEdit = true;
         taskToEdit = task;
-        SubmitBtn.Text = "Edit task";
+        SubmitBtn.Text = "Upravit úkol";
 
         NameEntry.Text = taskToEdit.TaskName;
         DescriptionEntry.Text = taskToEdit.TaskDescription;
         TaskDatePicker.Date = taskToEdit.TaskDate;
         TaskTimePicker.Time = taskToEdit.TaskTime;
 
-        Button deleteBtn = new Button
+        var deleteBtn = new Button
         {
-            Text = "Delete task",
+            Text = "Smazat úkol",
             BackgroundColor = Colors.Red,
         };
 

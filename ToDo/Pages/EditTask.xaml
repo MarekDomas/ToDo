@@ -21,7 +21,7 @@
         <Button
             x:Name="SubmitBtn"
             Clicked="SubmitBtn_OnClicked"
-            Text="Create task" />
+            Text="Vytvořit úkol" />
 
     </VerticalStackLayout>
 </ContentPage>

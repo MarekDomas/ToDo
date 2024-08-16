@@ -21,5 +21,7 @@ public class TaskToDo
         TaskStatus = taskStatus;
         TaskTime = taskTime;
     }
-    public TaskToDo() { }
+
+    //Třída musím mít prázdný konstruktor kvůli serializaci
+    public TaskToDo() {}
 }

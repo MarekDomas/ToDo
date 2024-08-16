@@ -21,7 +21,7 @@ namespace ToDo.Classes
             }
         }
 
-        //Funkce deserializuje xml soubor do Listu
+        //Funkce načte úkoly do Listu
         public static void LoadTasks()
         {
             if (!File.Exists(path))
