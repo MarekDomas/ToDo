@@ -5,12 +5,14 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
     <ScrollView>
-        <AbsoluteLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
             <ListView
                 x:Name="TaskLv"
                 Margin="20"
-                AbsoluteLayout.LayoutBounds="0,0,1,0.9"
-                AbsoluteLayout.LayoutFlags="SizeProportional"
                 ItemSelected="TaskLv_ItemSelected"
                 SeparatorVisibility="None">
                 <ListView.ItemTemplate>
@@ -37,13 +39,20 @@
 
             <Button
                 x:Name="TaskBtn"
+                Grid.Row="1"
                 Margin="20"
-                AbsoluteLayout.LayoutBounds="0.5,1,1,0.1"
-                AbsoluteLayout.LayoutFlags="All"
                 Clicked="TaskBtn_OnClicked"
                 Text="Nový úkol"
                 VerticalOptions="End" />
 
-        </AbsoluteLayout>
+        </Grid>
     </ScrollView>
 </ContentPage>
+
+<!--
+    AbsoluteLayout.LayoutBounds="0,0,1,0.9"
+    AbsoluteLayout.LayoutFlags="SizeProportional"
+    
+    AbsoluteLayout.LayoutBounds="0.5,1,1,0.1"
+    AbsoluteLayout.LayoutFlags="All"
+-->
