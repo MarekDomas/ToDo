@@ -2,13 +2,6 @@
 
 V této části bude zdokumentována To do aplikace vytvořená v .NET MAUI. 
 
- 
-
-S předchozími znalostmi už lze vytvořit nějakou základní aplikaci, jako ukázka bude předvedena To do aplikace. 
-Aplikaci naleznete na: MarekDomas/ToDo (github.com) 
-
- 
-
 V To do aplikaci potřebujete vytvářet úkoly, upravovat je, mazat a mít přehled vytvořených úkolů. 
 Tato aplikace má dvě stránky jednu na přehled úkolů a druhou na vytváření/upravování úkolů. 
 
